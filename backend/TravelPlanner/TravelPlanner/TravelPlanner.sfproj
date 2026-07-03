@@ -36,9 +36,15 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ActivityService\ActivityService.csproj" />
+    <ProjectReference Include="..\AuthService\AuthService.csproj" />
     <ProjectReference Include="..\BackendSF\BackendSF.csproj">
       <ServiceLaunchUrl>http://localhost:{ServicePort}/swagger</ServiceLaunchUrl>
     </ProjectReference>
+    <ProjectReference Include="..\DestinationService\DestinationService.csproj" />
+    <ProjectReference Include="..\ExpenseService\ExpenseService.csproj" />
+    <ProjectReference Include="..\ShareService\ShareService.csproj" />
+    <ProjectReference Include="..\TripService\TripService.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
