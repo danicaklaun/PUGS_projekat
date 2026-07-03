@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelPlanner.Shared.Models
+public class ChecklistItem
 {
-    internal class ChecklistItem
-    {
-    }
+    public Guid Id { get; set; }
+
+    public Guid TripId { get; set; }
+
+    public string Title { get; set; } = string.Empty;
+
+    public bool IsCompleted { get; set; }
 }

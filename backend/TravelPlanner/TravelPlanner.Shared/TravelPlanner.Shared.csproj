@@ -11,4 +11,14 @@
     <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="8.5.116" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\Destination\" />
+    <Folder Include="DTOs\Activity\" />
+    <Folder Include="DTOs\Expense\" />
+    <Folder Include="DTOs\Share\" />
+    <Folder Include="DTOs\Trip\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
 </Project>

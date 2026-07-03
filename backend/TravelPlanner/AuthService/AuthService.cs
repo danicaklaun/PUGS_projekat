@@ -5,8 +5,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
-using TravelPlanner.Shared.DTOs;
+using TravelPlanner.Shared.DTOs.Auth;
 using TravelPlanner.Shared.Interfaces;
 
 namespace AuthService
@@ -26,17 +27,45 @@ namespace AuthService
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new ServiceInstanceListener[0];
-        }
-        public async Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request)
-        {
-            return new AuthResponseDto
-            {
-                Success = true,
-                Message = $"Welcome {request.FirstName}!"
-            };
+            return this.CreateServiceRemotingInstanceListeners();
         }
 
+        public Task<AuthResponseDto> RegisterAsync(RegisterRequestDto request)
+        {
+            if (string.IsNullOrWhiteSpace(request.Email))
+            {
+                return Task.FromResult(new AuthResponseDto
+                {
+                    Success = false,
+                    Message = "Email is required."
+                });
+            }
+
+            return Task.FromResult(new AuthResponseDto
+            {
+                Success = true,
+                Message = $"User {request.Email} registered successfully."
+            });
+        }
+
+        public Task<LoginResponseDto> LoginAsync(LoginRequestDto request)
+        {
+            if (string.IsNullOrWhiteSpace(request.Email))
+            {
+                return Task.FromResult(new LoginResponseDto
+                {
+                    Success = false,
+                    Message = "Email is required."
+                });
+            }
+
+            return Task.FromResult(new LoginResponseDto
+            {
+                Success = true,
+                Token = Guid.NewGuid().ToString(),
+                Message = "Login successful."
+            });
+        }
 
         /// <summary>
         /// This is the main entry point for your service instance.

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelPlanner.Shared.Enums
+namespace TravelPlanner.Shared.Enums;
+
+public enum SharePermission
 {
-    internal class SharePermission
-    {
-    }
+    View,
+    Edit
 }

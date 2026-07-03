@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelPlanner.Shared.Enums
+namespace TravelPlanner.Shared.Enums;
+
+public enum ExpenseCategory
 {
-    internal class ExpenseCategory
-    {
-    }
+    Transport,
+    Accommodation,
+    Food,
+    Tickets,
+    Shopping,
+    Other
 }

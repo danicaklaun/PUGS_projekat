@@ -3,10 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelPlanner.Shared.Enums;
 
-namespace TravelPlanner.Shared.Models
+public class Activity
 {
-    internal class Activity
-    {
-    }
+    public Guid Id { get; set; }
+
+    public Guid TripId { get; set; }
+
+    public string Name { get; set; } = string.Empty;
+
+    public DateTime Date { get; set; }
+
+    public TimeSpan Time { get; set; }
+
+    public string Location { get; set; } = string.Empty;
+
+    public string Description { get; set; } = string.Empty;
+
+    public decimal EstimatedCost { get; set; }
+
+    public ActivityStatus Status { get; set; }
 }
