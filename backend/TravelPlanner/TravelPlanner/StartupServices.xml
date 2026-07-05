@@ -5,18 +5,6 @@
     <Parameter Name="TravelService_PartitionCount" DefaultValue="1" />
     <Parameter Name="TravelService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="ShareService_InstanceCount" DefaultValue="-1" />
-    <Parameter Name="ExpenseService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="ExpenseService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="ExpenseService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="ActivityService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="ActivityService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="ActivityService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="DestinationService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="DestinationService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="DestinationService_TargetReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="TripService_MinReplicaSetSize" DefaultValue="3" />
-    <Parameter Name="TripService_PartitionCount" DefaultValue="1" />
-    <Parameter Name="TripService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="AuthService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="BackendSF_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -35,26 +23,6 @@
       <StatelessService ServiceTypeName="ShareServiceType" InstanceCount="[ShareService_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
-    </Service>
-    <Service Name="ExpenseService" ServicePackageActivationMode="ExclusiveProcess">
-      <StatefulService ServiceTypeName="ExpenseServiceType" TargetReplicaSetSize="[ExpenseService_TargetReplicaSetSize]" MinReplicaSetSize="[ExpenseService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[ExpenseService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-      </StatefulService>
-    </Service>
-    <Service Name="ActivityService" ServicePackageActivationMode="ExclusiveProcess">
-      <StatefulService ServiceTypeName="ActivityServiceType" TargetReplicaSetSize="[ActivityService_TargetReplicaSetSize]" MinReplicaSetSize="[ActivityService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[ActivityService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-      </StatefulService>
-    </Service>
-    <Service Name="DestinationService" ServicePackageActivationMode="ExclusiveProcess">
-      <StatefulService ServiceTypeName="DestinationServiceType" TargetReplicaSetSize="[DestinationService_TargetReplicaSetSize]" MinReplicaSetSize="[DestinationService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[DestinationService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-      </StatefulService>
-    </Service>
-    <Service Name="TripService" ServicePackageActivationMode="ExclusiveProcess">
-      <StatefulService ServiceTypeName="TripServiceType" TargetReplicaSetSize="[TripService_TargetReplicaSetSize]" MinReplicaSetSize="[TripService_MinReplicaSetSize]">
-        <UniformInt64Partition PartitionCount="[TripService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
-      </StatefulService>
     </Service>
     <Service Name="AuthService" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="AuthServiceType" InstanceCount="[AuthService_InstanceCount]">

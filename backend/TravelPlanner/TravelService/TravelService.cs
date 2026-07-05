@@ -15,7 +15,7 @@ namespace TravelService
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class TravelService : StatefulService
+    internal sealed class TravelService : StatefulService, ITravelService
     {
         public TravelService(StatefulServiceContext context)
             : base(context)
@@ -30,7 +30,7 @@ namespace TravelService
         /// <returns>A collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            return new ServiceReplicaListener[0];
+            return this.CreateServiceRemotingReplicaListeners();
         }
 
         /// <summary>
@@ -65,6 +65,11 @@ namespace TravelService
 
                 await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
             }
+        }
+
+        public Task<string> PingAsync()
+        {
+            return Task.FromResult("TravelService is working!");
         }
     }
 }

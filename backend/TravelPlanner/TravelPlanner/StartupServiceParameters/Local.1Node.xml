@@ -5,18 +5,6 @@
     <Parameter Name="TravelService_MinReplicaSetSize" Value="1" />
     <Parameter Name="TravelService_TargetReplicaSetSize" Value="1" />
     <Parameter Name="ShareService_InstanceCount" Value="1" />
-    <Parameter Name="ExpenseService_PartitionCount" Value="1" />
-    <Parameter Name="ExpenseService_MinReplicaSetSize" Value="1" />
-    <Parameter Name="ExpenseService_TargetReplicaSetSize" Value="1" />
-    <Parameter Name="ActivityService_PartitionCount" Value="1" />
-    <Parameter Name="ActivityService_MinReplicaSetSize" Value="1" />
-    <Parameter Name="ActivityService_TargetReplicaSetSize" Value="1" />
-    <Parameter Name="DestinationService_PartitionCount" Value="1" />
-    <Parameter Name="DestinationService_MinReplicaSetSize" Value="1" />
-    <Parameter Name="DestinationService_TargetReplicaSetSize" Value="1" />
-    <Parameter Name="TripService_PartitionCount" Value="1" />
-    <Parameter Name="TripService_MinReplicaSetSize" Value="1" />
-    <Parameter Name="TripService_TargetReplicaSetSize" Value="1" />
     <Parameter Name="AuthService_InstanceCount" Value="1" />
     <Parameter Name="BackendSF_InstanceCount" Value="1" />
   </Parameters>

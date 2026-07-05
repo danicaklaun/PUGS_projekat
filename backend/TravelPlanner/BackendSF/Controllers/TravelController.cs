@@ -13,4 +13,11 @@ public class TravelController : ControllerBase
     {
         _travelProxy = travelProxy;
     }
+
+    [HttpGet("ping")]
+    public async Task<IActionResult> Ping()
+    {
+        var result = await _travelProxy.PingAsync();
+        return Ok(result);
+    }
 }
