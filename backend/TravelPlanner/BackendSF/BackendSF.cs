@@ -11,6 +11,8 @@ using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using Microsoft.ServiceFabric.Data;
+using BackendSF.Services;
+
 
 namespace BackendSF
 {
@@ -38,6 +40,9 @@ namespace BackendSF
 
                         var builder = WebApplication.CreateBuilder();
 
+                        builder.Services.AddSingleton<AuthProxyService>();
+builder.Services.AddSingleton<TravelProxyService>();
+builder.Services.AddSingleton<ShareProxyService>();
                         builder.Services.AddSingleton<StatelessServiceContext>(serviceContext);
                         builder.WebHost
                                     .UseKestrel()
