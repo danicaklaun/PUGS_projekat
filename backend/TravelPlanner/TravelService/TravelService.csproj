@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="8.5.116" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
