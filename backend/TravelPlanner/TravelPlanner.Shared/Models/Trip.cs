@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TravelPlanner.Shared.Models;
 
@@ -10,17 +6,26 @@ public class Trip
 {
     public Guid Id { get; set; }
 
-    public Guid OwnerId { get; set; }
-
+    [Required]
     public string Title { get; set; } = string.Empty;
 
-    public string Description { get; set; } = string.Empty;
+    public string? Description { get; set; }
 
     public DateTime StartDate { get; set; }
 
     public DateTime EndDate { get; set; }
 
-    public decimal PlannedBudget { get; set; }
+    public decimal Budget { get; set; }
 
-    public string Notes { get; set; } = string.Empty;
+    public Guid UserId { get; set; }
+
+    public User User { get; set; } = null!;
+
+    public ICollection<Destination> Destinations { get; set; } = new List<Destination>();
+
+    public ICollection<Activity> Activities { get; set; } = new List<Activity>();
+
+    public ICollection<Expense> Expenses { get; set; } = new List<Expense>();
+
+    public ICollection<ChecklistItem> ChecklistItems { get; set; } = new List<ChecklistItem>();
 }

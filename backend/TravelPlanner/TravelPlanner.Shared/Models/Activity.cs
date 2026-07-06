@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelPlanner.Shared.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TravelPlanner.Shared.Models;
 
 public class Activity
 {
     public Guid Id { get; set; }
 
-    public Guid TripId { get; set; }
-
+    [Required]
     public string Name { get; set; } = string.Empty;
+
+    public string? Location { get; set; }
+
+    public string? Description { get; set; }
 
     public DateTime Date { get; set; }
 
-    public TimeSpan Time { get; set; }
-
-    public string Location { get; set; } = string.Empty;
-
-    public string Description { get; set; } = string.Empty;
-
     public decimal EstimatedCost { get; set; }
 
-    public ActivityStatus Status { get; set; }
+    public Guid TripId { get; set; }
+
+    public Trip Trip { get; set; } = null!;
 }
